@@ -1,18 +1,17 @@
-import { preditedModel } from "../controller/preditedModel.controller"
+import { json } from "express"
+import { predictedModel } from "../controller/predictedModel.controller"
 import { httpResponse } from "../utils/httpResponse"
 
-
-export const preditedModelMiddleware = (req, res, next) => {
-  console.log('3. preditedModelMiddleware')
+export const predictedModelMiddleware = (req, res, next) => {
+  console.log('3. predictedModelMiddleware')
   try {
     const {jsonCsv} = req.body
     if(!jsonCsv) {
       return httpResponse({res, statusCode: 400, message: 'csv was not processed' })  
     }
+    const dataPredicted = predictedModel(jsonCsv);
 
-    const dataPredited = preditedModel(jsonCsv);
-
-    req.body.dataPredited = dataPredited;
+    req.body.dataPredicted = dataPredicted;
 
     next();
   } catch (error) {

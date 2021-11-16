@@ -1,5 +1,5 @@
 import express from 'express'
-import { healtyRouter } from './healty';
+import { healtyRouter } from './healthy';
 import { proccessCsvRouter } from './proccessCsv.router';
 
 export const router = express();

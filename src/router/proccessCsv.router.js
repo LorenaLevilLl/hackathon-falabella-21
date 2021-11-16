@@ -1,6 +1,6 @@
 import express from 'express';
 import { jsonToCsvMiddleware } from '../middleware/jsonToCsv.middleware';
-import { preditedModelMiddleware } from '../middleware/preditedModel.middleware';
+import { predictedModelMiddleware } from '../middleware/predictedModel.middleware';
 import { csvToJsonMiddleware } from '../middleware/csvToJson.middleware';
 import { uploadCsv } from '../middleware/uploadCsv.middleware';
 
@@ -12,7 +12,7 @@ proccessCsvRouter.post(
   `${prefix}/upload`, 
   uploadCsv.single("file"), 
   csvToJsonMiddleware, 
-  preditedModelMiddleware,
+  predictedModelMiddleware,
   jsonToCsvMiddleware
 );
 
