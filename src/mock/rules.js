@@ -14,9 +14,40 @@ const RULES = [
           {
              "value":"SELLER",
              "weight":0.8
-          }
+          },
+          {
+            "value":"TOTTUS",
+            "weight":0.3
+         },
+         {
+            "value":"SODIMAC",
+            "weight":0.1
+         }          
        ]
-    }
+    },
+    {
+      "id":"rule002",
+      "name":"CARRIER_TYPE",
+      "type":"MULTIPLE",
+      "status":"ACTIVE",
+      "field":"carrier",
+      "weight":0.1,
+      "conditions":[
+         {
+            "value":"DEDICATED",
+            "weight":0.1
+         },
+         {
+            "value":"3PL",
+            "weight":0.2
+         },
+         {
+           "value":"COLABORATIVE",
+           "weight":0.3
+        }        
+      ]
+   }    
+
  ]
 
  module.exports = RULES;
