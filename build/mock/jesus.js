@@ -1,3 +1,4 @@
+"use strict";
 
 const paths = {
   "1": {
@@ -15,8 +16,7 @@ const paths = {
     pickeo: '2h',
     exitleg: '10:30'
   }
-}
-
+};
 const pkg = {
   paht: [1, 2],
   errors: {
@@ -26,4 +26,4 @@ const pkg = {
       pickeo: '30m'
     }
   }
-}
+};

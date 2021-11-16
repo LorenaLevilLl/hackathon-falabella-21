@@ -1,6 +1,7 @@
-import { httpResponse } from "../utils/httpResponse"
+const CSV = require('../mock/csv')
 
 export const processCsMiddleware = (req, res, next) => {
-
-  return httpResponse({res, statusCode: 200})
+  console.log('POR ACA');
+  req.csv = CSV;
+  return next();
 }
