@@ -1,13 +1,14 @@
+import fs from 'fs';
+import csv from 'csv-parser'
 
-export const processCsv = () => {
+export const csvToJson = (filePath) => {
   return new Promise((resolve, reject) => {
     const results = [];
-    fs.createReadStream('data/data.csv')
+    // 'data/data.csv'
+    fs.createReadStream(filePath)
       .pipe(csv({ separator: ',' }))
       .on('data', (data) => results.push(data))
       .on('end', () => {
-        console.log(results[0]);
-        console.log(results.length);
         resolve(results);
       })
       .on('error', (error) => {
