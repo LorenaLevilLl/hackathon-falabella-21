@@ -4,12 +4,12 @@ import { httpResponse } from "../utils/httpResponse"
 export const jsonToCsvMiddleware = (req, res, next) => {
   console.log('4. jsonToCsvMiddleware')
   try {
-    const {dataPredited} = req.body;
-    if(!dataPredited) {
-      return httpResponse({res, statusCode: 400, message: 'data predited it was not processed' })  
+    const {dataPredicted} = req.body;
+    if(!dataPredicted) {
+      return httpResponse({res, statusCode: 400, message: 'data predicted it was not processed' })  
     }
 
-    const csv = jsonToCsv(dataPredited);
+    const csv = jsonToCsv(dataPredicted);
 
     return httpResponse({res, statusCode: 200, payload: csv})
   } catch (error) {

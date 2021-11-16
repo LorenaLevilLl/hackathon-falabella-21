@@ -1,5 +1,5 @@
 
-export const preditedModel = (csvJSON) => {
+export const predictedModel = (csvJSON) => {
   /**
    * Ale Predecir modelo
    */
