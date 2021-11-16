@@ -4,7 +4,7 @@ const RULES = [
        "name":"OPERATOR_TYPE",
        "type":"MULTIPLE",
        "status":"ACTIVE",
-       "field":"broken",
+       "field":"operatorType",
        "weight":0.5,
        "conditions":[
           {
