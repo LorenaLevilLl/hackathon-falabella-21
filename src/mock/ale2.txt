@@ -1,0 +1,183 @@
+// Nodos
+{
+"name": "TEMUCO_CASA_LORENA",
+"average_picking_time": 2,
+"distances": [
+{
+"to": "SANTIAGO_CASA_FRAN",
+"distance": 200,
+"average_time": 6
+}
+]
+}
+
+
+
+{
+"name": "SANTIAGO_CASA_FRAN",
+"average_picking_time": 0.5,
+"distances": [
+{
+"to": "SANTIAGO_CASA_JESUS",
+"distance": 20,
+"average_time": 0.5
+
+
+
+}
+],
+"legs":
+[{
+"departure_date":"16:00",
+},
+{
+"departure_date":"18:00",
+}
+]
+}
+
+
+
+//LEGS
+{
+exit_date: "11:30"
+}
+
+
+
+// Package
+
+
+
+{
+"lost": true,
+"path": [
+{
+"node": "TEMUCO_CASA_FRAN",
+"deadline_arrival": "17:30",
+"arrival": "18:00"
+},
+{
+"node": "TEMUCO_CASA_JESUS",
+"deadline_arrival": "22:30",
+"arrival": "22:25"
+}
+]
+
+
+
+}
+
+
+
+// Front End Rules
+
+
+
+{
+"id:" "rule001",
+"name": "PACKAGE_LOST",
+"field: "lost",
+"type": "BINARY",
+"status": "ACTIVE",
+"weights": [
+{
+"value": 1,
+"weight": 1
+},
+{
+"value": 0,
+"weight": 0
+}
+]
+}
+{
+"name": "PACKAGE_BROKEN",
+"field: "broken",
+"type": "BINARY",
+"status": "ACTIVE",
+"weights": [
+{
+"value": 1,
+"weight": 1
+},
+{
+"value": 0,
+"weight": 0
+}
+]
+}
+{
+"name": "NODE_ARRIVAL",
+"type": "DEADLINE",
+"field1": "NODE_DEADLINE_DATE1",
+"field2": "NODE_DEADLINE_DATE2",
+"operation": "GREATER",
+"status": "ACTIVE",
+"weights": [
+{
+"value": true,
+"weight": 1
+},
+{
+"value": false,
+"weight": 0
+}
+]
+}
+{
+"name": "PICKING",
+"type": "PICKING",
+"status": "ACTIVE",
+"weights": [
+{
+"value": "DELAYED",
+"weight": 0.5
+},
+{
+"value": "ON_TIME",
+"weight": 0
+}
+]
+}
+
+
+
+// CORE STATUS PKG
+
+
+
+{
+"location": "SANTIAGO_CASA_FRAN",
+"picking": "IN_PROGRESS",
+"picking_start_date: "9am"
+"lost": false,
+"llegue_casa_fran": 12
+}
+
+
+
+RUTA: Lorena - Fran - Jesus
+
+
+
+Picking 11:15
+Promedio Picking 30 minutos
+Consulta1: 10:50 - PR 10%
+Consulta1: 11:00 - PR 30%
+Consulta1: 11:15 - PR 80%
+
+
+
+
+_________________________________
+
+
+
+
+Base: Nodos
+Base: Paquetes, status Paquete
+
+
+
+Front, Base: Rules
